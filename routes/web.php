@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
-Route::redirect('/', '/meca')->name('home');
+Route::get('/', function () {
+    return Inertia::render('home');
+})->name('home');
+
+Route::redirect('/meca-old', '/meca')->name('meca.old');
 
 Route::get('dashboard', function () {
     return Inertia::render('dashboard');
